@@ -17,10 +17,9 @@ public class RemoveControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String bno = req.getParameter("bno");
-	
 		
 		BoardVO vo = new BoardVO();
-		
+	
 		vo.setBoardNo(Integer.parseInt(bno));
 	
 		BoardService svc = new BoardServiceImpl();
@@ -31,10 +30,7 @@ public class RemoveControl implements Control {
 			System.out.println("삭제실패");
 		}
 	
-		List<BoardVO> list = svc.boardList();
-		for(BoardVO board : list) {
-			System.out.println(board.toString());
-		}
+	
 		
 
 	}

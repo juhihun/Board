@@ -1,33 +1,36 @@
 package com.yedam.web;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
-import com.yedam.VO.BoardVO;
+import com.yedam.VO.MemberVO;
 import com.yedam.common.Control;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
 
-public class AddFormControl implements Control {
+public class LoginControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String path = "WEB-INF/board/addBoard.jsp";
+		//id,pw 파라미터
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
 		
-		req.getRequestDispatcher(path);
 		BoardService svc = new BoardServiceImpl();
-		List<BoardVO> list = svc.boardList(0);
+		MemberVO mvo = svc.login(id, pw);
 		
-		RequestDispatcher rd = req.getRequestDispatcher(path);
-		rd.forward(req, resp);
-		
-
+		if(mvo != null){
+			HttpSession Session = req.getSession();
+			Session.setAttribute("logId",mvo.getUserId());
+			resp.sendRedirect("main.do");
+		}else {
+			resp.sendRedirect("logForm.do");
+		}
 	}
 
 }
