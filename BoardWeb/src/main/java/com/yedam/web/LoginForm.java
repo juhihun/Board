@@ -17,6 +17,8 @@ public class LoginForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "WEB-INF/member/loginForm.jsp";
+		path = "member/loginForm.tiles";
+		
 		req.getRequestDispatcher(path).forward(req, resp);
 	
 		

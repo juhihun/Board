@@ -19,10 +19,11 @@ public class AddFormControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String path = "WEB-INF/board/addBoard.jsp";
+		path="board/addBoard.tiles";
 		
-		req.getRequestDispatcher(path);
-		BoardService svc = new BoardServiceImpl();
-		List<BoardVO> list = svc.boardList(0);
+//		req.getRequestDispatcher(path);
+//		BoardService svc = new BoardServiceImpl();
+//		List<BoardVO> list = svc.boardList(search);
 		
 		RequestDispatcher rd = req.getRequestDispatcher(path);
 		rd.forward(req, resp);

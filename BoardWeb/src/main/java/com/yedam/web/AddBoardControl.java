@@ -30,15 +30,15 @@ public class AddBoardControl implements Control {
 		String content = mr.getParameter("content");
 		String writer = mr.getParameter("writer");
 		String img = mr.getFilesystemName("myImg");
-		
-		
+		String path = "WEB-INF/board/addBoard.jsp";
+		path = "board/addBoard.tiles";		
 		BoardService svc = new BoardServiceImpl();
 		
 		MemberVO mvo = svc.checkMember(writer);
 		if(mvo == null) {
 			
 			req.setAttribute("message", "권한이 없습니다");
-			req.getRequestDispatcher("WEB-INF/board/addBoard.jsp").forward(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
 			return;
 		}
 		
@@ -56,10 +56,7 @@ public class AddBoardControl implements Control {
 			System.out.println("등록실패");
 		}
 	
-		List<BoardVO> list = svc.boardList(0);
-		for(BoardVO board : list) {
-			System.out.println(board.toString());
-		}
+		
 	
 
 	}

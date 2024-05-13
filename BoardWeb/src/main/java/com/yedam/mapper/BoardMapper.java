@@ -6,13 +6,15 @@ import org.apache.ibatis.annotations.Param;
 
 import com.yedam.VO.BoardVO;
 import com.yedam.VO.MemberVO;
+import com.yedam.common.SearchVO;
 
 public interface BoardMapper {
 
 	List<BoardVO> boardList(); //전체목록가져오기
-	List<BoardVO> boardListPaging(int page); //5개씩 리스트
+	List<BoardVO> boardListPaging(SearchVO search); //5개씩 리스트
 
-	int getTotalCnt();
+	
+	int getTotalCnt(SearchVO search);
 	int insertBoard(BoardVO board);
 	BoardVO selectBoard(int boardNo);
 	int updateViewCnt(int boardNo);

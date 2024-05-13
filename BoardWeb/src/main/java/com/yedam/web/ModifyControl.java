@@ -1,7 +1,7 @@
 package com.yedam.web;
 
 import java.io.IOException;
-import java.util.List;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +22,8 @@ public class ModifyControl implements Control {
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String page = req.getParameter("page");
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
 		
 		BoardVO vo = new BoardVO();
 		
@@ -31,9 +33,11 @@ public class ModifyControl implements Control {
 		vo.setContent(content);
 		
 		BoardService svc = new BoardServiceImpl();
+		String encodekw = URLEncoder.encode(kw, "utf-8"); //한글 encoding 처리
+		
 		if(svc.modifyBoard(vo)){
 			System.out.println("수정성공");
-			resp.sendRedirect("main.do?page="+ page);
+			resp.sendRedirect("main.do?page="+ page +"&searchCondition=" + sc + "&keyword" + encodekw);
 		}else {
 			System.out.println("수정실패");
 		}

@@ -3,7 +3,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<jsp:include page="../includes/header.jsp"></jsp:include>
+<style>
+	div.reply div{
+	margin : auto;
+	}
+	div.reply ul{
+	list-style-type: none;
+	margin : 5px;
+	}
+	div.reply li{
+	padding-top : 1px;
+	padding-bottom: 1px;
+	}
+	div.reply span{
+	display: inline-block;
+	}
+</style>
 
 <h2>상세화면</h2>
 
@@ -16,6 +31,8 @@
 		<form name="myFrm">
 			<input type="hidden" name="bno" value="${result.boardNo }">
 			<input type="hidden" name="page" value="${page }">
+			<input type="hidden" name="searchCondition" value="${searchCondition }">
+			<input type="hidden" name="keyword" value="${keyword }">
 			
 		</form>
 		<table class="table">
@@ -45,6 +62,40 @@
 	</c:otherwise>
 </c:choose>
 
-<script src = "js/board.js"></script>
+<!-- 댓글목록 -->
+<div class = "container reply">
+<div class = "header">
+	<input class = "col-sm-8" id="reply">
+	<button class = "col-sm-3" id = "addReply">댓글등록</button>
+</div>
+	<div class = "content">
+		<ul>
+			<li>
+				<span class = "col-sm-2">글번호</span>
+				<span class = "col-sm-5">댓글내용</span>
+				<span class = "col-sm-2">작성자</span>
+				<span class = "col-sm-2">삭제</span>
+			</li>
+			<li>
+				<hr/>
+			</li>
+			<li style ="display : none;">
+				<span class = "col-sm-2">2</span>
+				<span class = "col-sm-5">3</span>
+				<span class = "col-sm-2">user02</span>
+				<span class = "col-sm-2"><button onclick="deleteRow(event)" class = "btn btn-warning">삭제</button></span>
+			</li>
+		
+			
+		</ul>
+	
+	</div> <!-- content -->
+</div> <!-- container -->
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>
+
+
+<script>
+	const bno = '${result.boardNo }';
+	const writer = '${logId }';
+</script>
+<script src = "js/board.js"></script>

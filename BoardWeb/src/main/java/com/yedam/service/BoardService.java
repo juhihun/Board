@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.yedam.VO.BoardVO;
 import com.yedam.VO.MemberVO;
+import com.yedam.common.SearchVO;
 
 public interface BoardService {
 	
-	List<BoardVO> boardList(int page);//목록
-	int getTotal(); //전체건수
+	List<BoardVO> boardList(SearchVO search);//목록
+	int getTotal(SearchVO search); //전체건수
 
 	boolean addBoard(BoardVO vo);
 	BoardVO getBoard(int boardNo);
