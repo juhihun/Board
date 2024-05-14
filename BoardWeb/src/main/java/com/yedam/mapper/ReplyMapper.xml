@@ -36,8 +36,12 @@ where reply_no = #{replyNo}
 	</selectKey>
 insert into tbl_replyes(reply_no, reply, replyer,board_no)
 values (replyes_seq.nextval,#{reply},#{replyer},#{boardNo})
-
 </insert>
+
+<select id= "replyCnt" resultType="int" parameterType="com.yedam.VO.ReplyVO">
+	select count(1) from tbl_replyes
+	where board_no = #{boardNo}
+</select>
 
 	
 </mapper>

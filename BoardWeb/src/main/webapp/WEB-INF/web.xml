@@ -7,6 +7,35 @@
 	<listener>
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
 	</listener>
+	
+	<!-- filter,encoding 지장값  -->
+	<filter>
+	<filter-name>encodingFilter</filter-name>
+	<filter-class>com.yedam.common.EncodingFilter</filter-class>
+	<init-param>
+		<param-name>enc</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+	</filter>
+		<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+		</filter-mapping>
+	<filter>
+		<filter-name>respFilter</filter-name>
+		<filter-class>com.yedam.common.ResponseFilter</filter-class>
+		<init-param>
+			<param-name>response</param-name>
+			<param-value>/addForm.do</param-value>
+		</init-param>
+	</filter>	
+	<filter-mapping>
+		<filter-name>respFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+		
+		
+	<!--  url 서블릿 매칭 -->
 	<servlet>
 		<servlet-name>first</servlet-name>
 		<servlet-class>com.yedam.web.FirstServlet</servlet-class>

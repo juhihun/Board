@@ -139,4 +139,5 @@ div.reply span {
 	const bno = '${result.boardNo }';
 	const writer = '${logId }';
 </script>
+<script src = "js/replyService.js"></script>
 <script src = "js/board.js"></script>

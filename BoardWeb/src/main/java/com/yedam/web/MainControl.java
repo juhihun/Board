@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.VO.BoardVO;
 import com.yedam.common.Control;
+import com.yedam.common.HttpUtils;
 import com.yedam.common.PageDTO;
 import com.yedam.common.SearchVO;
 import com.yedam.service.BoardService;
@@ -45,9 +46,10 @@ public class MainControl implements Control{
 		req.setAttribute("keyword", kw);
 		
 		
-		req.getRequestDispatcher(path).forward(req, resp);
+		//req.getRequestDispatcher(path).forward(req, resp);
 		
-		
+	
+		HttpUtils.forword(req, resp, path);
 		
 	}
 	

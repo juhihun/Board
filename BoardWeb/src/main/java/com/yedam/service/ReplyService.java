@@ -10,7 +10,7 @@ public interface ReplyService {
 	List<ReplyVO> replyList(SearchVO search);
 	boolean removeReply(int replyno);
 	boolean addReply(ReplyVO rvo);
-	
+	int getReplyCnt(int boardNo); //댓글갯수
 	//로그인MemberVO login(String id, String pw);
 //	
 //	MemberVO checkMember(String id);

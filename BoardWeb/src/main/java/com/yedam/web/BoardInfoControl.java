@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.VO.BoardVO;
 import com.yedam.common.Control;
+import com.yedam.common.HttpUtils;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
 
@@ -33,7 +34,9 @@ public class BoardInfoControl implements Control {
 		
 		String path = "WEB-INF/board/board.jsp";
 		path ="board/board.tiles";
-		req.getRequestDispatcher(path).forward(req, resp);
+		//req.getRequestDispatcher(path).forward(req, resp);
+		HttpUtils.forword(req, resp, path);
+		
 
 	}
 

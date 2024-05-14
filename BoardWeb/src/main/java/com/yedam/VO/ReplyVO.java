@@ -10,6 +10,7 @@ public class ReplyVO {
 	private String replyer; //댓글작성자
 	private String replyDate;//작성일시
 	private int boardNo; //원본글번호
+	private int replyCnt;
 	
 	
 }

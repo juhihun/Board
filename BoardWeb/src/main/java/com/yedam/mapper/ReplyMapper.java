@@ -14,7 +14,7 @@ public interface ReplyMapper {
 	int deleteReply(int replyNo);
 	//댓글등록
 	int insertReply(ReplyVO vro);
-	
+	int replyCnt(int boardNo);
 	//사용자id,pw확인
 //	MEMBERVO SELECTMEMBER(@PARAM("ID") STRING ID, @PARAM("PW") STRING PW);
 //	MemberVO selectMember2(String id);

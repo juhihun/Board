@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.VO.BoardVO;
 import com.yedam.common.Control;
+import com.yedam.common.HttpUtils;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
 
@@ -25,8 +26,10 @@ public class AddFormControl implements Control {
 //		BoardService svc = new BoardServiceImpl();
 //		List<BoardVO> list = svc.boardList(search);
 		
-		RequestDispatcher rd = req.getRequestDispatcher(path);
-		rd.forward(req, resp);
+		//RequestDispatcher rd = req.getRequestDispatcher(path);
+		//	rd.forward(req, resp);
+		
+		HttpUtils.forword(req, resp, path);
 		
 
 	}
