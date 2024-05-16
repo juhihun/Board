@@ -168,9 +168,9 @@ function createPageList(result) {
 
 //수정기능추가
 $('.modal-content button').on('click',function(){
-	$('#reply').val($('.modal-content p:eq(1)'));
-	
-		svc.updateReply({ rno,reply },
+	let dd = $('#modal_reply').val($('.modal-content p:eq(0)'));
+	console.log(dd);
+		svc.updateReply({ reply },
 		result => {
 			if (result.retCode == 'OK') {
 			

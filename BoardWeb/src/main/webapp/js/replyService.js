@@ -38,11 +38,11 @@ const svc = {
 	
 	updateReply(param = {}, successCall, errorCall) {
 		//fetch('updateReply.do?bno=' + param.bno + '&replyer=' + param.writer + '&reply=' + param.reply)
-		fetch('updateReply.do', {
-			method: 'post',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'rno=' + param.rno + '&reply=' + param.reply
-		})
+		fetch('updateReply.do?rno='+param.rno+'reply='+param.reply)
+//			method: 'post',
+//			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//			body: 'rno=' + param.rno + '&reply=' + param.reply
+//		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
