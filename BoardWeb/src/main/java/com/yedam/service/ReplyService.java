@@ -14,4 +14,5 @@ public interface ReplyService {
 	//로그인MemberVO login(String id, String pw);
 //	
 //	MemberVO checkMember(String id);
+	boolean updateReply(ReplyVO rvo);
 }

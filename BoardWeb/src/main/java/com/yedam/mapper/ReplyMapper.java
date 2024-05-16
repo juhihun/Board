@@ -19,6 +19,6 @@ public interface ReplyMapper {
 //	MEMBERVO SELECTMEMBER(@PARAM("ID") STRING ID, @PARAM("PW") STRING PW);
 //	MemberVO selectMember2(String id);
 	
-	
+	int updateReply(ReplyVO vro);
 	
 }
