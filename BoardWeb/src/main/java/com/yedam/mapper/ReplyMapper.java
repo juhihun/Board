@@ -2,6 +2,7 @@ package com.yedam.mapper;
 
 import java.util.List;
 
+import com.yedam.VO.CartVO;
 import com.yedam.VO.ReplyVO;
 import com.yedam.common.SearchVO;
 
@@ -20,5 +21,14 @@ public interface ReplyMapper {
 //	MemberVO selectMember2(String id);
 	
 	int updateReply(ReplyVO vro);
+	
+	//cart 
+	//목록
+	List<CartVO> selectList();
+	//수정
+	int updateCart(CartVO cvo);
+	//삭제
+	int deleteCart(int no);
+	
 	
 }

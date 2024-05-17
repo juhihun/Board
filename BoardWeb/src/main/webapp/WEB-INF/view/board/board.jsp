@@ -115,7 +115,7 @@ div.reply span {
     <span class="close">&times;</span>
  
     <p>댓글번호 : 234</p>
-    <p><input type="text" name="modal_reply"></p>
+    <p><input type="text" name="modal_reply" id="modal_reply"></p>
     <p><button class="btn btn-primary">수정</button></p>
   </div>
 </div>

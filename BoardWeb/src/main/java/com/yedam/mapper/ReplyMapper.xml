@@ -35,7 +35,7 @@ where reply_no = #{replyNo}
 	select replyes_seq.nextval from dual 
 	</selectKey>
 insert into tbl_replyes(reply_no, reply, replyer,board_no)
-values (replyes_seq.nextval,#{reply},#{replyer},#{boardNo})
+values (#{replyNo},#{reply},#{replyer},#{boardNo})
 </insert>
 
 <select id= "replyCnt" resultType="int" parameterType="com.yedam.VO.ReplyVO">
@@ -43,10 +43,29 @@ values (replyes_seq.nextval,#{reply},#{replyer},#{boardNo})
 	where board_no = #{boardNo}
 </select>
 
-<update id="updateReply" parameterType="int">
+<update id="updateReply" parameterType="com.yedam.VO.ReplyVO">
 update tbl_replyes 
 set reply = #{reply}
 where reply_no = #{replyNo}
 </update>
+	
+
+<!-- 카트관련 -->
+<select id="selectList" resultType="com.yedam.VO.CartVO">
+select *
+from tbl_cart
+order by no
+</select>
+
+<update id="updateCart" parameterType="com.yedam.VO.CartVO">
+update tbl_cart
+set qty = qty + #{qty}
+where no = #{no}
+</update>
+
+<delete id="deleteCart" parameterType="int">
+delete from tbl_cart
+where no = #{no}
+</delete>
 	
 </mapper>

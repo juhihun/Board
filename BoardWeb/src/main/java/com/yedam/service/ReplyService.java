@@ -2,6 +2,7 @@ package com.yedam.service;
 
 import java.util.List;
 
+import com.yedam.VO.CartVO;
 import com.yedam.VO.ReplyVO;
 import com.yedam.common.SearchVO;
 
@@ -15,4 +16,12 @@ public interface ReplyService {
 //	
 //	MemberVO checkMember(String id);
 	boolean updateReply(ReplyVO rvo);
+	
+	//cart관련
+	//목록
+	List<CartVO> cartList();
+	//수정
+	boolean modifyCart(CartVO cvo);
+	//삭제
+	boolean removeCart(int no);
 }
